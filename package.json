@@ -1,0 +1,9 @@
+{
+  "name": "giphy-search",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikNijland/giphy-search.git"
+  },
+  "author": "Erik Nijland",
+  "license": "MIT"
+}
