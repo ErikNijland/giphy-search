@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function SearchForm() {
+export default function SearchForm(props) {
   return (
     <form>
       <label>
         Search query
-        <input />
+        <input value={props.query }/>
       </label>
     </form>
   );
