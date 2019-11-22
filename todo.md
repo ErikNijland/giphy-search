@@ -1,8 +1,6 @@
-- pagination
 - axios instead of fetch
 - add types to api request parameters
 - api error handling
-- consider using a hook for data fetching
 - no results found message
 - cancel pending api request
 - investigate shadow dom / other css scoping features
@@ -12,12 +10,13 @@
 - unit tests eco system
 - show info about number of results 
 - add tslint
-- learn about react hooks
 - button component (with ng-content equivalent)
 - input component
 - message component (for api down message with ng-content equivalent)
 - JSX linter for consistent closing html tags
 - make link to home conditional (only if there is a clean way to do it)
+- understand react rendering/updating cycle
+- see best practices for making routes type safe
 
 Maybe:
 - A settings page to switch some stuff like ESRB rating or page size.

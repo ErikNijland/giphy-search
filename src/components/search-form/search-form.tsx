@@ -1,48 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
+import useSearch from '../../hooks/use-search/use-search';
 
-interface Props {
-  query: string;
-  onSearch: (newQuery: string) => void,
-}
+export default function SearchForm () {
+  const [ inputQuery, setInputQuery ] = useState<string>(useSearch('query') || '');
+  const history = useHistory();
 
-interface State {
-  newQuery: string;
-}
-
-export default class SearchForm extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      newQuery: this.props.query,
-    };
-
-    this.handleNewQueryChange = this.handleNewQueryChange.bind(this);
-    this.search = this.search.bind(this);
-  }
-
-  handleNewQueryChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      newQuery: event.target.value,
-    });
-  }
-
-  search(event: React.FormEvent<HTMLFormElement>) {
+  function search (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    this.props.onSearch(this.state.newQuery);
+    history.push(`?query=${inputQuery}`);
   }
 
-  render() {
-    return (
-      <form onSubmit={this.search}>
+  return (
+    <div>
+      <form onSubmit={search}>
         <label>
           Search query
-          <input value={this.state.newQuery} onChange={this.handleNewQueryChange} />
+          <input value={inputQuery} onChange={(event) => setInputQuery(event.target.value)} autoFocus />
         </label>
 
         <button type="submit">Search</button>
       </form>
-    );
-  }
+    </div>
+  );
 }

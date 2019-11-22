@@ -4,8 +4,11 @@ import {SearchResults} from '../../types/search-results';
 import {settings} from '../../settings';
 
 const GiphyApi = {
-  fetchImages(query: string): Promise<SearchResults> {
-    return fetch(`//api.giphy.com/v1/gifs/search?api_key=NvklHHolU7yM5ES8QV9TYPJzwtNQBld3&q=${query}`)
+  fetchImages(query: string, page: number): Promise<SearchResults> {
+    const offset = (page - 1) * settings.imagesPerPage;
+    const limit = settings.imagesPerPage;
+
+    return fetch(`//api.giphy.com/v1/gifs/search?api_key=NvklHHolU7yM5ES8QV9TYPJzwtNQBld3&q=${query}&offset=${offset}&limit=${limit}`)
       .then((response) => response.json())
       .then((giphyResponse: GiphySearchResponse) => ({
         numberOfPages: Math.ceil(giphyResponse.pagination.total_count / settings.imagesPerPage),

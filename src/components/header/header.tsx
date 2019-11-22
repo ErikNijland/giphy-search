@@ -5,7 +5,7 @@ export class Header extends React.Component {
   render() {
     return (
       <header>
-        <Link to="/"><h1>GIPHY image search</h1></Link>
+        <h1><Link to="/">GIPHY image search</Link></h1>
         <Link to="/settings">Settings</Link>
       </header>
     );
