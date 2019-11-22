@@ -26,8 +26,6 @@ export default class App extends React.Component {
         <h1>GIPHY image search</h1>
         <SearchForm query={this.state.query} onSearch={this.updateQuery} />
         <SearchResults query={this.state.query} />
-
-        Query: {this.state.query}
       </div>
     );
   }

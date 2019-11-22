@@ -1,11 +1,9 @@
-- show images
-- show info about number of results 
-- pagination
 - See about typescript integration
 - npm types for giphy
 - Routing
+- pagination
 - axios instead of fetch
 - readme
 - storybook
 - unit tests eco system
-
+- show info about number of results 
