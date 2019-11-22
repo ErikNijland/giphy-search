@@ -1,7 +1,9 @@
 - Routing
 - pagination
 - axios instead of fetch
+- add types to api request parameters
 - api error handling
+- no results found message
 - investigate shadow dom / other css scoping features
 - readme
 - storybook
