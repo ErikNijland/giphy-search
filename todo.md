@@ -1,10 +1,13 @@
 - See about typescript integration
 - npm types for giphy
+- is the jsx extension something I should use?
 - Routing
 - pagination
 - axios instead of fetch
+- api error handling
 - investigate shadow dom / other css scoping features
 - readme
 - storybook
+- consider redux
 - unit tests eco system
 - show info about number of results 
