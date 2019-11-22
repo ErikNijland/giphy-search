@@ -1,39 +1,25 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
-import SearchForm from '../search-form/search-form';
-import SearchResults from '../search-results/search-results';
+import {Settings} from '../../pages/settings/settings';
+import {Header} from '../header/header';
+import {PageNotFound} from '../../pages/page-not-found/page-not-found';
+import ImageSearch from '../../pages/image-search/image-search';
 
-interface Props {
-}
-
-interface State {
-  query: string;
-}
-
-export default class App extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      query: '',
-    };
-
-    this.updateQuery = this.updateQuery.bind(this);
-  }
-
-  updateQuery(newQuery: string) {
-    this.setState({
-      query: newQuery,
-    })
-  }
-
+export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <h1>GIPHY image search</h1>
-        <SearchForm query={this.state.query} onSearch={this.updateQuery}/>
-        <SearchResults query={this.state.query}/>
-      </div>
+      <BrowserRouter>
+        <Header />
+
+        <main>
+          <Switch>
+            <Route path="/" exact component={ImageSearch} />
+            <Route path="/settings" component={Settings} />
+            <Route path="*" component={PageNotFound} />
+          </Switch>
+        </main>
+      </BrowserRouter>
     );
   }
 }
