@@ -1,7 +1,7 @@
 import React from 'react';
-import GiphyApi from '../giphy-api/giphy-api';
+import GiphyApi from '../../giphy-api/giphy-api';
 import Spinner from '../spinner/spinner';
-import {Image} from "../image/types/image";
+import {Image} from "../../types/image";
 
 interface Props {
   query: string;
@@ -28,7 +28,21 @@ export default class SearchResults extends React.Component<Props, State> {
     }
   }
 
-  search(query: string) {
+  render() {
+    return (
+      <div>
+        {this.state.isLoading &&
+        <Spinner/>
+        }
+
+        {this.state.images && this.state.images.map((image) =>
+          <img key={image.id} src={image.src} alt={image.alt}/>
+        )}
+      </div>
+    );
+  }
+
+  private search(query: string) {
     const hasQuery = query.trim().length > 0;
 
     this.setState({
@@ -53,19 +67,5 @@ export default class SearchResults extends React.Component<Props, State> {
           // Todo
         }
       );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.isLoading &&
-        <Spinner/>
-        }
-
-        {this.state.images && this.state.images.map((image) =>
-          <img key={image.id} src={image.src} alt={image.alt}/>
-        )}
-      </div>
-    );
   }
 }
