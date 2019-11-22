@@ -1,5 +1,6 @@
 - See about typescript integration
 - npm types for giphy
+- prop_types vs something offered by typescript for state and props structure
 - is the jsx extension something I should use?
 - Routing
 - pagination
