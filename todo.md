@@ -2,6 +2,7 @@
 - axios instead of fetch
 - add types to api request parameters
 - api error handling
+- consider using a hook for data fetching
 - no results found message
 - cancel pending api request
 - investigate shadow dom / other css scoping features

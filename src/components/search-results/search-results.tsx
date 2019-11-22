@@ -1,53 +1,43 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import GiphyApi from '../../services/giphy-api/giphy-api';
 import Spinner from '../spinner/spinner';
 import {Image} from "../../types/image";
+import useSearch from '../../hooks/use-search/use-search';
 
 interface Props {
   query: string;
 }
 
-interface State {
-  images?: Image[];
-  isLoading: boolean;
-  numberOfPages?: number;
-}
+export default function SearchResults (props: Props) {
+  const [ images, setImages ] = useState<Image[]>([]);
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ numberOfPages, setNumberOfPages ] = useState(0);
 
-export default class SearchResults extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+  const pageSearchParam = useSearch('page');
+  const page = Number.isInteger(Number(pageSearchParam)) ? Number(pageSearchParam) : 1;
 
-    this.state = {
-      isLoading: false,
-    };
-  }
+  useEffect(() => search(props.query, 1), [ props.query ]);
+  useEffect(() => search(props.query, page), [ page ]);
 
-  componentDidUpdate(prevProps: Props) {
-    if (this.props.query !== prevProps.query) {
-      this.search(this.props.query);
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.isLoading &&
+  return (
+    <div>
+      {isLoading &&
         <Spinner/>
-        }
+      }
 
-        {this.state.images && this.state.images.map((image) =>
-          <img key={image.id} src={image.src} alt={image.alt}/>
-        )}
-      </div>
-    );
-  }
+      {images && images.map((image) =>
+        <img key={image.id} src={image.src} alt={image.alt}/>
+      )}
 
-  private search(query: string): void {
+      {page}
+    </div>
+  );
+
+  function search(query: string, page: number): void {
     const hasQuery = query.trim().length > 0;
 
-    this.setState({
-      isLoading: hasQuery,
-    });
+    setImages([]);
+    setIsLoading(hasQuery);
 
     if (!hasQuery) {
       return;
@@ -57,10 +47,9 @@ export default class SearchResults extends React.Component<Props, State> {
       .fetchImages(query)
       .then(
         (searchResults) => {
-          this.setState({
-              ...searchResults,
-            isLoading: false,
-          });
+          setImages(searchResults.images);
+          setIsLoading(false);
+          setNumberOfPages(searchResults.numberOfPages);
         },
         (_) => {
           // Todo
