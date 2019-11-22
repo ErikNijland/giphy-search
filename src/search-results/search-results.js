@@ -1,6 +1,6 @@
 import React from 'react';
-import GiphyApi from "../giphy-api/giphy-api";
-import Spinner from "../spinner/spinner";
+import GiphyApi from '../giphy-api/giphy-api';
+import Spinner from '../spinner/spinner';
 
 export default class SearchResults extends React.Component {
   constructor(props) {
@@ -49,11 +49,11 @@ export default class SearchResults extends React.Component {
     return (
       <div>
         {this.state.isLoading &&
-          <Spinner />
+        <Spinner/>
         }
 
         {this.state.images && this.state.images.map((image) =>
-          <img key={image.id} src={image.src} alt={image.alt} />
+          <img key={image.id} src={image.src} alt={image.alt}/>
         )}
       </div>
     );
