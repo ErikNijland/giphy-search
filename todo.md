@@ -1,4 +1,3 @@
-- npm types for giphy
 - Routing
 - pagination
 - axios instead of fetch
