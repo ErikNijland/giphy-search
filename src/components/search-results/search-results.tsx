@@ -1,5 +1,5 @@
 import React from 'react';
-import GiphyApi from '../../giphy-api/giphy-api';
+import GiphyApi from '../../services/giphy-api/giphy-api';
 import Spinner from '../spinner/spinner';
 import {Image} from "../../types/image";
 

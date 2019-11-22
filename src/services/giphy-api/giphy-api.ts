@@ -1,6 +1,6 @@
-import {GiphySearchResponse} from '../types/giphy-api/giphy-search-response';
-import {GiphyImage} from '../types/giphy-api/giphy-image';
-import {Image} from '../types/image';
+import {GiphySearchResponse} from '../../types/giphy-api/giphy-search-response';
+import {GiphyImage} from '../../types/giphy-api/giphy-image';
+import {Image} from '../../types/image';
 
 const GiphyApi = {
   fetchImages(query: string): Promise<Image[]> {
