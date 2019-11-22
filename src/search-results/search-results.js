@@ -1,10 +1,7 @@
 import React from 'react';
+import GiphyApi from "../giphy-api/giphy-api";
 
 export default class SearchResults extends React.Component {
-  componentDidMount() {
-    this.search(this.props.query);
-  }
-
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
       this.search(this.props.query);
@@ -12,6 +9,7 @@ export default class SearchResults extends React.Component {
   }
 
   search(query) {
+    GiphyApi.fetchImages(query).then(console.log);
     console.log('go searching', query);
   }
 

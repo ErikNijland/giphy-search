@@ -8,7 +8,7 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      query: 'poep',
+      query: '',
     };
 
     this.updateQuery = this.updateQuery.bind(this);
