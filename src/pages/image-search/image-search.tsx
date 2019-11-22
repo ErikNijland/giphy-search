@@ -1,6 +1,5 @@
 import SearchForm from '../../components/search-form/search-form';
 import SearchResults from '../../components/search-results/search-results';
-import {Route} from 'react-router';
 import React from 'react';
 
 interface Props {

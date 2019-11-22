@@ -3,6 +3,7 @@
 - add types to api request parameters
 - api error handling
 - no results found message
+- cancel pending api request
 - investigate shadow dom / other css scoping features
 - readme
 - storybook
@@ -21,3 +22,4 @@ Maybe:
 - A settings page to switch some stuff like ESRB rating or page size.
 - enable routing on server (without switching to hashes)
 - experiment with  media query: different image type for mobile vs desktop
+- investigate best practices for un-initialized state variables null vs optional. optional sucks because they are hard to reset again b/c of shallow merge

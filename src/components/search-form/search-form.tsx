@@ -28,8 +28,8 @@ export default class SearchForm extends React.Component<Props, State> {
   }
 
   search(event: React.FormEvent<HTMLFormElement>) {
-    console.log(event);
     event.preventDefault();
+
     this.props.onSearch(this.state.newQuery);
   }
 

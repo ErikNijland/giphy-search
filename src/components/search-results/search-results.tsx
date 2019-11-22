@@ -8,8 +8,9 @@ interface Props {
 }
 
 interface State {
-  images: Image[];
+  images?: Image[];
   isLoading: boolean;
+  numberOfPages?: number;
 }
 
 export default class SearchResults extends React.Component<Props, State> {
@@ -17,9 +18,8 @@ export default class SearchResults extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      images: [],
       isLoading: false,
-    }
+    };
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -42,11 +42,10 @@ export default class SearchResults extends React.Component<Props, State> {
     );
   }
 
-  private search(query: string) {
+  private search(query: string): void {
     const hasQuery = query.trim().length > 0;
 
     this.setState({
-      images: [],
       isLoading: hasQuery,
     });
 
@@ -57,9 +56,9 @@ export default class SearchResults extends React.Component<Props, State> {
     GiphyApi
       .fetchImages(query)
       .then(
-        (images) => {
+        (searchResults) => {
           this.setState({
-            images,
+              ...searchResults,
             isLoading: false,
           });
         },
