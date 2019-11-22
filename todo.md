@@ -1,7 +1,16 @@
-- axios instead of fetch
-- add types to api request parameters
 - api error handling
 - no results found message
+- button component (with ng-content equivalent)
+- input component
+- add some css styling
+
+Maybe:
+- add tslint
+- JSX linter for consistent closing html tags
+- make link to home conditional (only if there is a clean way to do it)
+- message component (for api down message with ng-content equivalent)
+- axios instead of fetch
+- add types to api request parameters
 - cancel pending api request
 - investigate shadow dom / other css scoping features
 - readme
@@ -9,17 +18,8 @@
 - consider redux
 - unit tests eco system
 - show info about number of results 
-- add tslint
-- button component (with ng-content equivalent)
-- input component
-- message component (for api down message with ng-content equivalent)
-- JSX linter for consistent closing html tags
-- make link to home conditional (only if there is a clean way to do it)
 - understand react rendering/updating cycle
 - see best practices for making routes type safe
-
-Maybe:
 - A settings page to switch some stuff like ESRB rating or page size.
-- enable routing on server (without switching to hashes)
 - experiment with  media query: different image type for mobile vs desktop
-- investigate best practices for un-initialized state variables null vs optional. optional sucks because they are hard to reset again b/c of shallow merge
+- enable routing on server (without switching to hashes)
