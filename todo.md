@@ -3,6 +3,7 @@
 - Routing
 - pagination
 - axios instead of fetch
+- investigate shadow dom / other css scoping features
 - readme
 - storybook
 - unit tests eco system
