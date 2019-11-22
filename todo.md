@@ -12,3 +12,4 @@
 - consider redux
 - unit tests eco system
 - show info about number of results 
+- add tslint
