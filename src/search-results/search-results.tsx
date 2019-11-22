@@ -1,28 +1,38 @@
 import React from 'react';
 import GiphyApi from '../giphy-api/giphy-api';
 import Spinner from '../spinner/spinner';
+import {Image} from "../image/types/image";
 
-export default class SearchResults extends React.Component {
-  constructor(props) {
+interface Props {
+  query: string;
+}
+
+interface State {
+  images: Image[];
+  isLoading: boolean;
+}
+
+export default class SearchResults extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
-      images: null,
+      images: [],
       isLoading: false,
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     if (this.props.query !== prevProps.query) {
       this.search(this.props.query);
     }
   }
 
-  search(query) {
+  search(query: string) {
     const hasQuery = query.trim().length > 0;
 
     this.setState({
-      images: null,
+      images: [],
       isLoading: hasQuery,
     });
 

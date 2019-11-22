@@ -1,10 +1,17 @@
 import React from 'react';
 import './App.css';
-import SearchForm from './search-form/search-form';
-import SearchResults from './search-results/search-results';
+import SearchForm from '../search-form/search-form';
+import SearchResults from '../search-results/search-results';
 
-export default class App extends React.Component {
-  constructor(props) {
+interface Props {
+}
+
+interface State {
+  query: string;
+}
+
+export default class App extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -14,7 +21,7 @@ export default class App extends React.Component {
     this.updateQuery = this.updateQuery.bind(this);
   }
 
-  updateQuery(newQuery) {
+  updateQuery(newQuery: string) {
     this.setState({
       query: newQuery,
     })

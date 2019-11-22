@@ -1,7 +1,16 @@
 import React from 'react';
 
-export default class SearchForm extends React.Component {
-  constructor(props) {
+interface Props {
+  query: string;
+  onSearch: (newQuery: string) => void,
+}
+
+interface State {
+  newQuery: string;
+}
+
+export default class SearchForm extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -12,13 +21,14 @@ export default class SearchForm extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  handleNewQueryChange(event) {
+  handleNewQueryChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       newQuery: event.target.value,
     });
   }
 
-  search(event) {
+  search(event: React.FormEvent<HTMLFormElement>) {
+    console.log(event);
     event.preventDefault();
     this.props.onSearch(this.state.newQuery);
   }

@@ -1,7 +1,4 @@
-- See about typescript integration
 - npm types for giphy
-- prop_types vs something offered by typescript for state and props structure
-- is the jsx extension something I should use?
 - Routing
 - pagination
 - axios instead of fetch
@@ -13,3 +10,4 @@
 - unit tests eco system
 - show info about number of results 
 - add tslint
+- learn about react hooks
