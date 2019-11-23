@@ -2,12 +2,22 @@ import {useEffect, useReducer} from 'react';
 import {FetchApiState} from '../../types/fetch-api-state';
 
 export default function useFetchApi<ApiResponse>(url: string): FetchApiState<ApiResponse> {
+  const initialState: FetchApiState<ApiResponse> = {
+    isLoading: true,
+    response: null,
+    error: null,
+  };
+
   type Action =
+    | { type: 'FETCH' }
     | { type: 'SUCCESS', payload: ApiResponse }
     | { type: 'ERROR', payload: Error }
 
   function reducer (state: FetchApiState<ApiResponse>, action: Action) {
     switch (action.type) {
+      case 'FETCH':
+        return initialState;
+
       case 'SUCCESS':
         return {
           ...state,
@@ -27,13 +37,11 @@ export default function useFetchApi<ApiResponse>(url: string): FetchApiState<Api
     }
   }
 
-  const [ state, dispatch ] = useReducer(reducer, {
-    isLoading: true,
-    response: null,
-    error: null,
-  });
+  const [ state, dispatch ] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    dispatch({ type: 'FETCH' });
+
     fetch(url)
       .then((response) => response.json())
       .then(
