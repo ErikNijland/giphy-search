@@ -1,10 +1,10 @@
 - Feature: different image type based on screen size
 - Feature: switch to webp and mp4 imagea
+- Feature: do not call API when query is empty
 - CSS: Introduce Storybook
 - Testing: read about unit tests eco system
 - Docs: add readme
 - TSLint: Form an opinion about "Multiline JS expressions inside JSX are forbidden"
-- Feature: clear search
 - Feature: A settings page to switch some stuff like ESRB rating or page size.
 - CSS styling: form
 - CSS styling: pagination

@@ -43,9 +43,7 @@ export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<Ap
   useEffect(() => {
     dispatch({ type: "FETCH" });
 
-    if (lastAbortController.current) {
-      lastAbortController.current.abort();
-    }
+    cancelLastFetch();
 
     const currentAbortController = new AbortController();
     lastAbortController.current = currentAbortController;
@@ -57,7 +55,15 @@ export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<Ap
         (response) => dispatch({ type: "SUCCESS", payload: response }),
         (error) => () => dispatch({ type: "ERROR", payload: error }),
       );
+
+    return cancelLastFetch;
   }, [ url ]);
 
   return state;
+
+  function cancelLastFetch() {
+    if (lastAbortController.current) {
+      lastAbortController.current.abort();
+    }
+  }
 }
