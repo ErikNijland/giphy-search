@@ -3,6 +3,7 @@
 - button component (with ng-content equivalent)
 - input component
 - add some css styling
+- learn context
 
 Maybe:
 - add tslint

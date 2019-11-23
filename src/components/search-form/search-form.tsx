@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import useSearch from '../../hooks/use-search/use-search';
+import useSearchParam from '../../hooks/use-search-param/use-search-param';
 
 export default function SearchForm () {
-  const [ inputQuery, setInputQuery ] = useState<string>(useSearch('query') || '');
+  const [ inputQuery, setInputQuery ] = useState<string>(useSearchParam('query') || '');
   const history = useHistory();
 
   function search (event: React.FormEvent<HTMLFormElement>) {

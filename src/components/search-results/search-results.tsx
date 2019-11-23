@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import GiphyApi from '../../services/giphy-api/giphy-api';
 import Spinner from '../spinner/spinner';
 import {Image} from "../../types/image";
-import useSearch from '../../hooks/use-search/use-search';
+import useSearchParam from '../../hooks/use-search-param/use-search-param';
 import Pager from '../pager/pager';
 
 export default function SearchResults () {
@@ -10,8 +10,8 @@ export default function SearchResults () {
   const [ isLoading, setIsLoading ] = useState(false);
   const [ numberOfPages, setNumberOfPages ] = useState(0);
 
-  const query = useSearch('query') || '';
-  const page = Number(useSearch('page') || '1');
+  const query = useSearchParam('query') || '';
+  const page = Number(useSearchParam('page') || '1');
 
   useEffect(() => search(query, page), [ query, page ]);
 

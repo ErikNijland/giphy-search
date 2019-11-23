@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import useSearch from '../../hooks/use-search/use-search';
+import useSearchParam from '../../hooks/use-search-param/use-search-param';
 
 interface Props {
   currentPage: number;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function Pager (props: Props) {
-  const query = useSearch('query');
+  const query = useSearchParam('query');
 
   return (
     <div>
