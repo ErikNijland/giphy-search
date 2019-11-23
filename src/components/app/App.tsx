@@ -6,20 +6,18 @@ import {Header} from '../header/header';
 import {PageNotFound} from '../../pages/page-not-found/page-not-found';
 import ImageSearch from '../../pages/image-search/image-search';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Header />
+export default function App () {
+  return (
+    <BrowserRouter>
+      <Header />
 
-        <main>
-          <Switch>
-            <Route path="/" exact component={ImageSearch} />
-            <Route path="/settings" component={Settings} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
-        </main>
-      </BrowserRouter>
-    );
-  }
+      <main>
+        <Switch>
+          <Route path="/" exact component={ImageSearch} />
+          <Route path="/settings" component={Settings} />
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </main>
+    </BrowserRouter>
+  );
 }
