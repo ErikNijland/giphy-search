@@ -15,7 +15,7 @@ export default function SearchResults() {
   return (
     <div>
       {giphyData.isLoading &&
-        <Spinner/>
+        <Spinner />
       }
 
       {giphyData.response && giphyData.response.images.length > 0 &&
