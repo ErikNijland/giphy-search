@@ -19,7 +19,7 @@ export default function SearchResults () {
       }
 
       {giphyData.response && giphyData.response.images.map((image) =>
-        <Giphy { ...image } />
+        <Giphy key={image.id} { ...image } />
       )}
 
       {giphyData.response && giphyData.response.numberOfPages === 0 &&

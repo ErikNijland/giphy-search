@@ -1,4 +1,4 @@
-import {useEffect, useReducer} from 'react';
+import {useEffect, useReducer, useRef} from 'react';
 import {FetchApiState} from '../../types/fetch-api-state';
 
 export default function useFetchApi<ApiResponse>(url: string): FetchApiState<ApiResponse> {
@@ -38,15 +38,24 @@ export default function useFetchApi<ApiResponse>(url: string): FetchApiState<Api
   }
 
   const [ state, dispatch ] = useReducer(reducer, initialState);
+  const lastAbortController = useRef<AbortController>();
 
   useEffect(() => {
     dispatch({ type: 'FETCH' });
 
-    fetch(url)
+    if (lastAbortController.current) {
+      lastAbortController.current.abort();
+    }
+
+    const currentAbortController = new AbortController();
+    lastAbortController.current = currentAbortController;
+    const { signal } = currentAbortController;
+
+    fetch(url, { signal })
       .then((response) => response.json())
       .then(
         (response) => dispatch({ type: 'SUCCESS', payload: response }),
-        (error) => dispatch({ type: 'ERROR', payload: error })
+        (error) => () => dispatch({ type: 'ERROR', payload: error }),
       );
   }, [ url ]);
 
