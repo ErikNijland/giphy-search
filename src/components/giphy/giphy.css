@@ -1,9 +1,10 @@
 @import '../../styles/colors.css';
+@import '../../styles/gaps.css';
 
 .Giphy {
   display: inline-flex;
   background-color: var(--grey);
-  margin: 5px;
+  margin: var(--gap-small);
 }
 
 .Giphy__Image {

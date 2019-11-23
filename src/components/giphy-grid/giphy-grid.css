@@ -1,4 +1,7 @@
+@import '../../styles/gaps.css';
+
 .GiphyGrid {
   display: flex;
   flex-wrap: wrap;
+  padding: var(--gap-small);
 }

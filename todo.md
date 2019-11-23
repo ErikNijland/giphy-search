@@ -1,22 +1,19 @@
-- add some css styling
 - investigate shadow dom / other css scoping features
 - do not execute api when there is no query
 
 Maybe:
+- css styling: form
+- css styling: pagination
+- css styling: notification
 - button component (with ng-content equivalent)
 - input component
 - add tslint
 - JSX linter for consistent closing html tags
 - make link to home conditional (only if there is a clean way to do it)
-- axios instead of fetch
 - add types to api request parameters
 - readme
 - storybook
 - unit tests eco system
-- show info about number of results 
-- understand react rendering/updating cycle
-- see best practices for making routes type safe
 - A settings page to switch some stuff like ESRB rating or page size.
-- experiment with  media query: different image type for mobile vs desktop
-- enable routing on server (without switching to hashes)
 - learn context: maybe for different image type based on screen size
+- experiment with  media query: different image type for mobile vs desktop

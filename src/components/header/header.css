@@ -1,0 +1,23 @@
+@import '../../styles/colors.css';
+@import '../../styles/gaps.css';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  padding: var(--gap-small) var(--gap-large);
+}
+
+.Header__Title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.Header_Menu {
+
+}
+
+.Header__Link {
+  color: var(--white);
+}
