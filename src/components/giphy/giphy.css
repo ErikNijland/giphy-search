@@ -1,0 +1,16 @@
+@import '../../styles/colors.css';
+
+.Giphy {
+  display: inline-flex;
+  background-color: var(--grey);
+  margin: 5px;
+}
+
+.Giphy__Image {
+  opacity: 1;
+  transition: opacity 0.75s;
+}
+
+.Giphy--Loading .Giphy__Image {
+  opacity: 0;
+}

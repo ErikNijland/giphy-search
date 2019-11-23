@@ -1,0 +1,4 @@
+.GiphyGrid {
+  display: flex;
+  flex-wrap: wrap;
+}

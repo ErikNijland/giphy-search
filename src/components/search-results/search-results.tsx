@@ -4,7 +4,7 @@ import useSearchParam from '../../hooks/use-search-param/use-search-param';
 import Pager from '../pager/pager';
 import useGiphyApi from '../../hooks/use-giphy-api/use-giphy-api';
 import Notification from '../notification/notification';
-import Giphy from '../giphy/giphy';
+import GiphyGrid from '../giphy-grid/giphy-grid';
 
 export default function SearchResults () {
   const query = useSearchParam('query') || '';
@@ -18,11 +18,11 @@ export default function SearchResults () {
         <Spinner/>
       }
 
-      {giphyData.response && giphyData.response.images.map((image) =>
-        <Giphy key={image.id} { ...image } />
-      )}
+      {giphyData.response && giphyData.response.images.length > 0 &&
+        <GiphyGrid images={giphyData.response.images} />
+      }
 
-      {giphyData.response && giphyData.response.numberOfPages === 0 &&
+      {giphyData.response && query && giphyData.response.numberOfPages === 0 &&
         <Notification type="info">No results found for "<b>{query}</b>"</Notification>
       }
 

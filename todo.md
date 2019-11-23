@@ -1,5 +1,6 @@
-- investigate shadow dom / other css scoping features
 - add some css styling
+- investigate shadow dom / other css scoping features
+- do not execute api when there is no query
 
 Maybe:
 - button component (with ng-content equivalent)
