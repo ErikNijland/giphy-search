@@ -1,5 +1,4 @@
 - investigate shadow dom / other css scoping features
-- do not execute api when there is no query
 
 Maybe:
 - css styling: form
