@@ -1,5 +1,3 @@
-- investigate shadow dom / other css scoping features
-
 Maybe:
 - css styling: form
 - css styling: pagination
