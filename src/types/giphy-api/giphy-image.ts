@@ -3,7 +3,9 @@ export interface GiphyImage {
   title: string;
   images: {
     fixed_height: {
+      height: string;
       url: string;
+      width: string;
     }
   };
 }

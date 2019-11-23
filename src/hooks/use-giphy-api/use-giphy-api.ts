@@ -21,8 +21,12 @@ export default function useGiphyApi(query: string, page: number): FetchApiState<
       numberOfPages: Math.ceil(giphySearchResponse.pagination.total_count / settings.imagesPerPage),
       images: giphySearchResponse.data.map((giphy: GiphyImage) => ({
         id: giphy.id,
+
         src: giphy.images.fixed_height.url,
         alt: giphy.title,
+
+        width: giphy.images.fixed_height.width,
+        height: giphy.images.fixed_height.height,
       }))
     };
   }
