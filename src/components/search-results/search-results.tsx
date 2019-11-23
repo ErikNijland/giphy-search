@@ -1,14 +1,14 @@
-import React from 'react';
-import Spinner from '../spinner/spinner';
-import useSearchParam from '../../hooks/use-search-param/use-search-param';
-import Pager from '../pager/pager';
-import useGiphyApi from '../../hooks/use-giphy-api/use-giphy-api';
-import Notification from '../notification/notification';
-import GiphyGrid from '../giphy-grid/giphy-grid';
+import React from "react";
+import useGiphyApi from "../../hooks/use-giphy-api/use-giphy-api";
+import useSearchParam from "../../hooks/use-search-param/use-search-param";
+import GiphyGrid from "../giphy-grid/giphy-grid";
+import Notification from "../notification/notification";
+import Pager from "../pager/pager";
+import Spinner from "../spinner/spinner";
 
-export default function SearchResults () {
-  const query = useSearchParam('query') || '';
-  const page = Number(useSearchParam('page') || '1');
+export default function SearchResults() {
+  const query = useSearchParam("query") || "";
+  const page = Number(useSearchParam("page") || "1");
 
   const giphyData = useGiphyApi(query, page);
 

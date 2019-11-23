@@ -1,6 +1,6 @@
-import {Image} from './image';
+import {IImage} from "./image";
 
-export interface SearchResults {
+export interface ISearchResults {
   numberOfPages: number;
-  images: Image[];
+  images: IImage[];
 }

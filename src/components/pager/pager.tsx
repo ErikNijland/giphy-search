@@ -1,14 +1,14 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import useSearchParam from '../../hooks/use-search-param/use-search-param';
+import React from "react";
+import {Link} from "react-router-dom";
+import useSearchParam from "../../hooks/use-search-param/use-search-param";
 
-interface Props {
+interface IProps {
   currentPage: number;
   numberOfPages: number;
 }
 
-export default function Pager (props: Props) {
-  const query = useSearchParam('query');
+export default function Pager(props: IProps) {
+  const query = useSearchParam("query");
 
   return (
     <div>

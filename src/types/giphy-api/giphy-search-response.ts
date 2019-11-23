@@ -1,8 +1,8 @@
-import {GiphyImage} from './giphy-image';
+import {IGiphyImage} from "./giphy-image";
 
-export interface GiphySearchResponse {
-  data: GiphyImage[];
+export interface IGiphySearchResponse {
+  data: IGiphyImage[];
   pagination: {
     total_count: number;
-  }
+  };
 }

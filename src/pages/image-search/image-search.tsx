@@ -1,8 +1,8 @@
-import SearchForm from '../../components/search-form/search-form';
-import SearchResults from '../../components/search-results/search-results';
-import React from 'react';
+import React from "react";
+import SearchForm from "../../components/search-form/search-form";
+import SearchResults from "../../components/search-results/search-results";
 
-export default function App () {
+export default function App() {
   return (
     <div>
       <SearchForm />

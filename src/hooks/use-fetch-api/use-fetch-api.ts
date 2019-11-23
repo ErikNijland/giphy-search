@@ -1,39 +1,39 @@
-import {useEffect, useReducer, useRef} from 'react';
-import {FetchApiState} from '../../types/fetch-api-state';
+import {useEffect, useReducer, useRef} from "react";
+import {IFetchApiState} from "../../types/fetch-api-state";
 
-export default function useFetchApi<ApiResponse>(url: string): FetchApiState<ApiResponse> {
-  const initialState: FetchApiState<ApiResponse> = {
+export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<ApiResponse> {
+  const initialState: IFetchApiState<ApiResponse> = {
+    error: null,
     isLoading: true,
     response: null,
-    error: null,
   };
 
   type Action =
-    | { type: 'FETCH' }
-    | { type: 'SUCCESS', payload: ApiResponse }
-    | { type: 'ERROR', payload: Error }
+    | { type: "FETCH" }
+    | { type: "SUCCESS", payload: ApiResponse }
+    | { type: "ERROR", payload: Error };
 
-  function reducer (state: FetchApiState<ApiResponse>, action: Action) {
+  function reducer(previousState: IFetchApiState<ApiResponse>, action: Action) {
     switch (action.type) {
-      case 'FETCH':
+      case "FETCH":
         return initialState;
 
-      case 'SUCCESS':
+      case "SUCCESS":
         return {
-          ...state,
+          ...previousState,
           isLoading: false,
           response: action.payload,
         };
 
-      case 'ERROR':
+      case "ERROR":
         return {
-          ...state,
-          isLoading: false,
+          ...previousState,
           error: action.payload,
+          isLoading: false,
         };
 
       default:
-        return state;
+        return previousState;
     }
   }
 
@@ -41,7 +41,7 @@ export default function useFetchApi<ApiResponse>(url: string): FetchApiState<Api
   const lastAbortController = useRef<AbortController>();
 
   useEffect(() => {
-    dispatch({ type: 'FETCH' });
+    dispatch({ type: "FETCH" });
 
     if (lastAbortController.current) {
       lastAbortController.current.abort();
@@ -54,8 +54,8 @@ export default function useFetchApi<ApiResponse>(url: string): FetchApiState<Api
     fetch(url, { signal })
       .then((response) => response.json())
       .then(
-        (response) => dispatch({ type: 'SUCCESS', payload: response }),
-        (error) => () => dispatch({ type: 'ERROR', payload: error }),
+        (response) => dispatch({ type: "SUCCESS", payload: response }),
+        (error) => () => dispatch({ type: "ERROR", payload: error }),
       );
   }, [ url ]);
 

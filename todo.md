@@ -1,11 +1,10 @@
 Maybe:
+- form an opinion about: "Multiline JS expressions inside JSX are forbidden"
 - css styling: form
 - css styling: pagination
 - css styling: notification
 - button component (with ng-content equivalent)
 - input component
-- add tslint
-- JSX linter for consistent closing html tags
 - make link to home conditional (only if there is a clean way to do it)
 - add types to api request parameters
 - readme

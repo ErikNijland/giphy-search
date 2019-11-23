@@ -1,4 +1,4 @@
-export interface GiphyImage {
+export interface IGiphyImage {
   id: string;
   title: string;
   images: {
@@ -6,6 +6,6 @@ export interface GiphyImage {
       height: string;
       url: string;
       width: string;
-    }
+    },
   };
 }
