@@ -1,57 +1,28 @@
-import React, {useEffect, useState} from 'react';
-import GiphyApi from '../../services/giphy-api/giphy-api';
+import React from 'react';
 import Spinner from '../spinner/spinner';
-import {Image} from "../../types/image";
 import useSearchParam from '../../hooks/use-search-param/use-search-param';
 import Pager from '../pager/pager';
+import useGiphyApi from '../../hooks/use-giphy-api/use-giphy-api';
 
 export default function SearchResults () {
-  const [ images, setImages ] = useState<Image[]>([]);
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [ numberOfPages, setNumberOfPages ] = useState(0);
-
   const query = useSearchParam('query') || '';
   const page = Number(useSearchParam('page') || '1');
 
-  useEffect(() => search(query, page), [ query, page ]);
+  const giphyData = useGiphyApi(query, page);
 
   return (
     <div>
-      {isLoading &&
+      {giphyData.isLoading &&
         <Spinner/>
       }
 
-      {images.map((image) =>
+      {giphyData.response && giphyData.response.images.map((image) =>
         <img key={image.id} src={image.src} alt={image.alt}/>
       )}
 
-      <Pager currentPage={page} numberOfPages={numberOfPages} />
+      {giphyData.response &&
+        <Pager currentPage={page} numberOfPages={giphyData.response.numberOfPages} />
+      }
     </div>
   );
-
-  function search(query: string, page = 1): void {
-    const hasQuery = query.trim().length > 0;
-
-    setImages([]);
-    setIsLoading(hasQuery);
-    setNumberOfPages(0);
-
-    if (!hasQuery) {
-      return;
-    }
-
-    GiphyApi
-      .fetchImages(query, page)
-      .then(
-        (searchResults) => {
-          setImages(searchResults.images);
-          setIsLoading(false);
-          setNumberOfPages(searchResults.numberOfPages);
-        },
-        (_) => {
-          // Todo
-          console.log('error');
-        }
-      );
-  }
 }
