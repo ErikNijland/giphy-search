@@ -1,15 +1,12 @@
-Maybe:
-- form an opinion about: "Multiline JS expressions inside JSX are forbidden"
-- css styling: form
-- css styling: pagination
-- css styling: notification
-- button component (with ng-content equivalent)
-- input component
-- make link to home conditional (only if there is a clean way to do it)
-- add types to api request parameters
-- readme
-- storybook
-- unit tests eco system
-- A settings page to switch some stuff like ESRB rating or page size.
 - learn context: maybe for different image type based on screen size
-- experiment with  media query: different image type for mobile vs desktop
+- Docs: add readme
+- TSLint: Form an opinion about "Multiline JS expressions inside JSX are forbidden"
+- CSS styling: form
+- CSS styling: pagination
+- CSS styling: notification
+- Component: button
+- Component: input
+- Feature: A settings page to switch some stuff like ESRB rating or page size.
+- CSS: Introduce Storybook
+- Testing: read about unit tests eco system
+- API: Add axios and add types to api request parameters
