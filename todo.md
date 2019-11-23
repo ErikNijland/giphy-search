@@ -1,5 +1,3 @@
-- api error handling
-- no results found message
 - button component (with ng-content equivalent)
 - input component
 - add some css styling
@@ -9,7 +7,6 @@ Maybe:
 - add tslint
 - JSX linter for consistent closing html tags
 - make link to home conditional (only if there is a clean way to do it)
-- message component (for api down message with ng-content equivalent)
 - axios instead of fetch
 - add types to api request parameters
 - cancel pending api request
