@@ -4,6 +4,8 @@ import {IGiphyImage} from "../../types/giphy-api/giphy-image";
 import {IGiphySearchResponse} from "../../types/giphy-api/giphy-search-response";
 import {ISearchResults} from "../../types/search-results";
 import useFetchApi from "../use-fetch-api/use-fetch-api";
+import {IGiphyImageSource} from '../../types/giphy-api/giphy-image-source';
+import {IImageSource} from '../../types/image-source';
 
 export default function useGiphyApi(query: string, page: number): IFetchApiState<ISearchResults> {
   const offset = (page - 1) * settings.imagesPerPage;
@@ -19,25 +21,34 @@ export default function useGiphyApi(query: string, page: number): IFetchApiState
   function mapApiResponse(giphySearchResponse: IGiphySearchResponse): ISearchResults {
     return {
       images: giphySearchResponse.data.map((giphy: IGiphyImage) => {
-        const {
-          mp4,
-          url: gif,
-          webp
-        } = giphy.images.fixed_height;
-
         return {
           alt: giphy.title,
-          height: giphy.images.fixed_height.height,
           id: giphy.id,
-          src: {
-            gif,
-            mp4,
-            webp,
+          formats: {
+            small: mapImageSource(giphy.images.fixed_height_small),
+            large: mapImageSource(giphy.images.fixed_height),
           },
-          width: giphy.images.fixed_height.width,
         };
       }),
       numberOfPages: Math.ceil(giphySearchResponse.pagination.total_count / settings.imagesPerPage),
+    };
+  }
+
+  function mapImageSource(giphyImageSource: IGiphyImageSource): IImageSource {
+    const {
+      height,
+      mp4,
+      url: gif,
+      webp,
+      width,
+    } = giphyImageSource;
+
+    return {
+      gif,
+      height,
+      mp4,
+      webp,
+      width,
     };
   }
 }

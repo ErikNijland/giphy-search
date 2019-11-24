@@ -1,5 +1,5 @@
-- Feature: different image size based on screen size
 - Bug: do not call API when query is empty
+- Bug: tslint single or double quote check seems inconsistent
 - CSS: Introduce Storybook
 - Testing: read about unit tests eco system
 - TSLint: Form an opinion about "Multiline JS expressions inside JSX are forbidden"

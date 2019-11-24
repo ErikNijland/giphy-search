@@ -5,7 +5,8 @@ A demo giphy search application to learn the 2019 version of React.
 - Application state is kept in the URL
 - Loading indicator while waiting for the API response
 - Images have a placeholder while loading and a fast animation when done loading
-- Video support and fallbacks: WEBP -> MP4 -> GIF
+- Different video format support with fallbacks: WEBP -> MP4 -> GIF
+- Different video format size based in screen size.
 - No results found message
 - Error message when the API is down
 - Subsequent API calls are cancelled

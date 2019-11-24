@@ -6,6 +6,7 @@ import "./giphy.css";
 export default function Giphy(props: IImage) {
   const [ classNames, setClassNames ] = useState(["Giphy", "Giphy--Loading"]);
   const screenSize = useScreenSize();
+  const giphySource = props.formats[screenSize];
 
   function removeLoadingClass() {
     setClassNames(classNames.filter((className) => className !== "Giphy--Loading"));
@@ -18,14 +19,14 @@ export default function Giphy(props: IImage) {
         autoPlay={true}
         loop={true}
         muted={true}
-        width={props.width}
-        height={props.height}
+        width={giphySource.width}
+        height={giphySource.height}
         onLoad={removeLoadingClass}
       >
 
-        <source src={props.src.webp} type="video/webp" />
-        <source src={props.src.mp4} type="video/mp4" />
-        <img src={props.src.gif} alt={props.alt} />
+        <source src={giphySource.webp} type="video/webp" />
+        <source src={giphySource.mp4} type="video/mp4" />
+        <img src={giphySource.gif} alt={props.alt} />
       </video>
     </div>
   );

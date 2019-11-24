@@ -1,13 +1,10 @@
+import {IGiphyImageSource} from './giphy-image-source';
+
 export interface IGiphyImage {
   id: string;
   title: string;
   images: {
-    fixed_height: {
-      height: string;
-      url: string;
-      width: string;
-      mp4: string;
-      webp: string;
-    },
+    fixed_height_small: IGiphyImageSource;
+    fixed_height: IGiphyImageSource;
   };
 }
