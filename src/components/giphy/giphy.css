@@ -12,6 +12,6 @@
   transition: opacity 0.75s;
 }
 
-.Giphy--Loading .Giphy__Image {
+.Giphy--Loading .Giphy__Video {
   opacity: 0;
 }

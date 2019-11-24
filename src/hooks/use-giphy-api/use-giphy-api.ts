@@ -18,13 +18,25 @@ export default function useGiphyApi(query: string, page: number): IFetchApiState
 
   function mapApiResponse(giphySearchResponse: IGiphySearchResponse): ISearchResults {
     return {
-      images: giphySearchResponse.data.map((giphy: IGiphyImage) => ({
-        alt: giphy.title,
-        height: giphy.images.fixed_height.height,
-        id: giphy.id,
-        src: giphy.images.fixed_height.url,
-        width: giphy.images.fixed_height.width,
-      })),
+      images: giphySearchResponse.data.map((giphy: IGiphyImage) => {
+        const {
+          mp4,
+          url: gif,
+          webp
+        } = giphy.images.fixed_height;
+
+        return {
+          alt: giphy.title,
+          height: giphy.images.fixed_height.height,
+          id: giphy.id,
+          src: {
+            gif,
+            mp4,
+            webp,
+          },
+          width: giphy.images.fixed_height.width,
+        };
+      }),
       numberOfPages: Math.ceil(giphySearchResponse.pagination.total_count / settings.imagesPerPage),
     };
   }

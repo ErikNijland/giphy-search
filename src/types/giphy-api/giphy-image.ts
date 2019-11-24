@@ -6,6 +6,8 @@ export interface IGiphyImage {
       height: string;
       url: string;
       width: string;
+      mp4: string;
+      webp: string;
     },
   };
 }

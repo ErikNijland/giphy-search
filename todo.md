@@ -1,4 +1,3 @@
-- Feature: switch to webp and mp4 images
 - Feature: different image size based on screen size
 - Bug: do not call API when query is empty
 - CSS: Introduce Storybook
