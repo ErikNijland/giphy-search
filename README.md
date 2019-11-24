@@ -15,6 +15,7 @@ A demo giphy search application to learn the 2019 version of React.
 
 ## Available scripts
 - `npm install`
+- `npm run start`
 - `npm run build`
 - `npm run test`
 - `npm run lint`
