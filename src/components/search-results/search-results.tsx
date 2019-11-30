@@ -1,17 +1,20 @@
 import React from "react";
-import useGiphyApi from "../../hooks/use-giphy-api/use-giphy-api";
 import useSearchParam from "../../hooks/use-search-param/use-search-param";
 import GiphyGrid from "../giphy-grid/giphy-grid";
-import Notification from "../notification/notification";
-import Pager from "../pager/pager";
-import Spinner from "../spinner/spinner";
+import useSimpleFetch from '../../hooks/simple-fetch/simple-fetch';
 
 export default function SearchResults() {
   const query = useSearchParam("query") || "";
   const page = Number(useSearchParam("page") || "1");
 
-  const giphyData = useGiphyApi(query, page);
+  const response = useSimpleFetch(query, page);
 
+  return (
+    <>
+      {response && <GiphyGrid images={response.images} />}
+    </>
+  )
+  /*
   return (
     <div>
       {giphyData.isLoading &&
@@ -35,4 +38,5 @@ export default function SearchResults() {
       }
     </div>
   );
+  */
 }

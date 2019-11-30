@@ -21,7 +21,7 @@ export default function SearchForm() {
           <input {...inputQuery} autoFocus={true} />
         </label>
 
-        <button type="submit" disabled={inputQuery.value.length === 0}>Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );
