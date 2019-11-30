@@ -1,0 +1,16 @@
+@import '../../styles/variables/font-size.css';
+@import '../../styles/variables/gaps.css';
+
+.FormInput {
+
+}
+
+.FormInput__Label {
+  display: inline-block;
+  margin-right: var(--gap-large);
+}
+
+.FormInput__Input {
+  font-size: var(--font-size-default);
+  padding: var(--gap-small);
+}

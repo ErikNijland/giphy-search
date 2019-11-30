@@ -1,4 +1,4 @@
-@import '../../styles/gaps.css';
+@import '../../styles/variables/gaps.css';
 
 .GiphyGrid {
   display: flex;
