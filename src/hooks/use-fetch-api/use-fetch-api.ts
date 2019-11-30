@@ -63,8 +63,8 @@ export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<Ap
     fetch(url, { signal })
       .then((response) => response.json())
       .then(
-        (response) => dispatch({ type: "SUCCESS", payload: response }),
-        (error) => () => dispatch({ type: "ERROR", payload: error }),
+        (response) => dispatch({type: "SUCCESS", payload: response}),
+        (error) => dispatch({ type: "ERROR", payload: error }),
       );
 
     return cancelLastFetch;

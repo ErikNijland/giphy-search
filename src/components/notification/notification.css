@@ -1,7 +1,15 @@
 .notification {
-
+  border-width: 1px;
+  border-style: solid;
+  padding: var(--gap-large);
 }
 
 .notification--error {
-  color: red;
+  color: var(--color-red);
+  border-color: var(--color-blue);
+}
+
+.notification--info {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
 }

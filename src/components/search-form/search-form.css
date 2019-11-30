@@ -1,7 +1,7 @@
 .SearchForm {
   display: flex;
   justify-content: center;
-  padding: var(--gap-large) var(--gap-large) 0;
+  margin: var(--gap-large);
 }
 
 .SearchForm__Input {
