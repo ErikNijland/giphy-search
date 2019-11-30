@@ -1,10 +1,10 @@
 import React from "react";
+import useGiphySearch from "../../hooks/use-giphy-search/use-giphy-search";
 import useSearchParam from "../../hooks/use-search-param/use-search-param";
 import GiphyGrid from "../giphy-grid/giphy-grid";
-import Spinner from '../spinner/spinner';
-import Notification from '../notification/notification';
-import useGiphySearch from '../../hooks/use-giphy-search/use-giphy-search';
-import Pager from '../pager/pager';
+import Notification from "../notification/notification";
+import Pager from "../pager/pager";
+import Spinner from "../spinner/spinner";
 
 export default function SearchResults() {
   const query = useSearchParam("query") || "";
