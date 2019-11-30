@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import Notification from '../../components/notification/notification';
+import Notification from "../../components/notification/notification";
 
 export default function PageNotFound() {
   return (
