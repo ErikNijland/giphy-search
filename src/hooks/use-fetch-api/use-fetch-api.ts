@@ -4,18 +4,25 @@ import {IFetchApiState} from "../../types/fetch-api-state";
 export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<ApiResponse> {
   const initialState: IFetchApiState<ApiResponse> = {
     error: null,
-    isLoading: true,
+    isLoading: false,
     response: null,
   };
 
   type Action =
     | { type: "FETCH" }
+    | { type: "RESET" }
     | { type: "SUCCESS", payload: ApiResponse }
     | { type: "ERROR", payload: Error };
 
   function reducer(previousState: IFetchApiState<ApiResponse>, action: Action) {
     switch (action.type) {
       case "FETCH":
+        return {
+          ...initialState,
+          isLoading: true,
+        };
+
+      case "RESET":
         return initialState;
 
       case "SUCCESS":
@@ -41,8 +48,12 @@ export default function useFetchApi<ApiResponse>(url: string): IFetchApiState<Ap
   const lastAbortController = useRef<AbortController>();
 
   useEffect(() => {
-    dispatch({ type: "FETCH" });
+    if (!url) {
+      dispatch({ type: 'RESET' });
+      return;
+    }
 
+    dispatch({ type: "FETCH" });
     cancelLastFetch();
 
     const currentAbortController = new AbortController();

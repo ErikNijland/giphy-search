@@ -1,5 +1,5 @@
 import React from "react";
-import useGiphyApi from "../../hooks/use-giphy-api/use-giphy-api";
+import useGiphySearch from "../../hooks/use-giphy-search/use-giphy-search";
 import useSearchParam from "../../hooks/use-search-param/use-search-param";
 import GiphyGrid from "../giphy-grid/giphy-grid";
 import Notification from "../notification/notification";
@@ -10,7 +10,7 @@ export default function SearchResults() {
   const query = useSearchParam("query") || "";
   const page = Number(useSearchParam("page") || "1");
 
-  const giphyData = useGiphyApi(query, page);
+  const giphyData = useGiphySearch(query, page);
 
   return (
     <div>
