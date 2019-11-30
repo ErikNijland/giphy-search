@@ -3,14 +3,14 @@ import React, {ReactNode} from "react";
 import "./notification.css";
 
 interface IProps {
-  type: "info" | "error";
+  type: "info" | "success" | "error";
   children: ReactNode;
 }
 
 export default function Notification(props: IProps) {
   const classNames = [
     "notification",
-    props.type === "info" ? "notification--info" : "notification--error",
+    `notification--${props.type}`,
   ];
 
   return (

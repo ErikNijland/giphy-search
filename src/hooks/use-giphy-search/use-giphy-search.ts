@@ -1,4 +1,3 @@
-import {settings} from "../../settings";
 import {IFetchApiState} from "../../types/fetch-api-state";
 import {IGiphyImage} from "../../types/giphy-api/giphy-image";
 import {IGiphySearchResponse} from "../../types/giphy-api/giphy-search-response";
@@ -7,10 +6,12 @@ import useFetchApi from "../use-fetch-api/use-fetch-api";
 import {IGiphyImageSource} from '../../types/giphy-api/giphy-image-source';
 import {IImageSource} from '../../types/image-source';
 import {useEffect, useState} from 'react';
+import {useSettings} from '../use-settings/use-settings';
 
 export default function useGiphySearch(query: string, page: number): IFetchApiState<ISearchResults> {
   const [ fetchUrl, setFetchUrl ] = useState();
   const fetchState = useFetchApi<IGiphySearchResponse>(fetchUrl);
+  const [ settings ] = useSettings();
 
   useEffect(() => {
     if (query === '') {
@@ -19,11 +20,15 @@ export default function useGiphySearch(query: string, page: number): IFetchApiSt
       return;
     }
 
-    const offset = (page - 1) * settings.imagesPerPage;
-    const limit = settings.imagesPerPage;
+    const {
+      giphyApiKey,
+      imagesPerPage: limit,
+      rating,
+    } = settings;
+    const offset = (page - 1) * limit;
 
-    setFetchUrl(`//api.giphy.com/v1/gifs/search?api_key=${settings.giphyApiKey}&q=${query}&offset=${offset}&limit=${limit}`);
-  }, [ query, page ]);
+    setFetchUrl(`//api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${query}&rating=${rating}&offset=${offset}&limit=${limit}`);
+  }, [ query, page, settings ]);
 
   return {
     ...fetchState,

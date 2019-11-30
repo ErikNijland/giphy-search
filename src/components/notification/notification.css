@@ -4,6 +4,11 @@
   padding: var(--gap-large);
 }
 
+.notification--success {
+  color: var(--color-green);
+  border-color: var(--color-green);
+}
+
 .notification--error {
   color: var(--color-red);
   border-color: var(--color-red);

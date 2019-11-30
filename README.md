@@ -12,6 +12,7 @@ A demo giphy search application to learn the 2019 version of React.
 - Subsequent API calls are cancelled
 - Navigating away will cancel the current API call
 - Pagination
+- A settings page to change the Giphy content rating
 
 [See the todo document](./todo.md) for missing features.
 

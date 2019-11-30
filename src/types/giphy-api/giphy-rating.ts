@@ -1,0 +1,1 @@
+export type GiphyRating = 'g' | 'pg' | 'pg-13' | 'r';
