@@ -3,6 +3,4 @@
 - Testing: read about unit tests eco system
 - TSLint: Form an opinion about "Multiline JS expressions inside JSX are forbidden"
 - Feature: A settings page to switch some stuff like ESRB rating or page size.
-- CSS styling: pagination
-- CSS styling: notification
 - Feature: Make a shared listener to the resize event instead of one for each instance

@@ -5,7 +5,7 @@ import GiphyGrid from "../giphy-grid/giphy-grid";
 import Notification from "../notification/notification";
 import Pager from "../pager/pager";
 import Spinner from "../spinner/spinner";
-import './search-results.css';
+import "./search-results.css";
 
 export default function SearchResults() {
   const query = useSearchParam("query") || "";

@@ -1,0 +1,9 @@
+.Pager {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--gap-large);
+}
+
+.Pager__Link:not(:last-child) {
+  margin-right: var(--gap-large);
+}
