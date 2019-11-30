@@ -8,25 +8,26 @@ import {IGiphyImageSource} from '../../types/giphy-api/giphy-image-source';
 import {IImageSource} from '../../types/image-source';
 import {useEffect, useState} from 'react';
 
-export default function useGiphyApi(query: string, page: number): IFetchApiState<ISearchResults> {
-  const [ url, setUrl ] = useState();
-  const state = useFetchApi<IGiphySearchResponse>(url);
+export default function useGiphySearch(query: string, page: number): IFetchApiState<ISearchResults> {
+  const [ fetchUrl, setFetchUrl ] = useState();
+  const fetchState = useFetchApi<IGiphySearchResponse>(fetchUrl);
 
   useEffect(() => {
     if (query === '') {
-      setUrl(null);
+      setFetchUrl(null);
+
       return;
     }
 
     const offset = (page - 1) * settings.imagesPerPage;
     const limit = settings.imagesPerPage;
 
-    setUrl(`//api.giphy.com/v1/gifs/search?api_key=${settings.giphyApiKey}&q=${query}&offset=${offset}&limit=${limit}`);
+    setFetchUrl(`//api.giphy.com/v1/gifs/search?api_key=${settings.giphyApiKey}&q=${query}&offset=${offset}&limit=${limit}`);
   }, [ query, page ]);
 
   return {
-    ...state,
-    response: state.response ? mapApiResponse(state.response) : null,
+    ...fetchState,
+    response: fetchState.response ? mapApiResponse(fetchState.response) : null,
   };
 
   function mapApiResponse(giphySearchResponse: IGiphySearchResponse): ISearchResults {
