@@ -1,4 +1,3 @@
-- Bug: do not call API when query is empty -> consider making a factory to prevent using hooks conditionally
 - Bug: tslint single or double quote check seems inconsistent
 - CSS: Introduce Storybook
 - Testing: read about unit tests eco system
