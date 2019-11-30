@@ -8,16 +8,18 @@ import "./App.css";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Header />
+    <div className="App">
+      <BrowserRouter>
+        <Header />
 
-      <main>
-        <Switch>
-          <Route path="/" exact={true} component={ImageSearch} />
-          <Route path="/settings" component={Settings} />
-          <Route path="*" component={PageNotFound} />
-        </Switch>
-      </main>
-    </BrowserRouter>
+        <main className="App__Content">
+          <Switch>
+            <Route path="/" exact={true} component={ImageSearch} />
+            <Route path="/settings" component={Settings} />
+            <Route path="*" component={PageNotFound} />
+          </Switch>
+        </main>
+      </BrowserRouter>
+    </div>
   );
 }
