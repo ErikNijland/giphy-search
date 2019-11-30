@@ -7,4 +7,4 @@
 - CSS styling: pagination
 - CSS styling: notification
 - Component: button
-- Component: input
+- Feature: Make a shared listener to the resize event instead of one for each instance
