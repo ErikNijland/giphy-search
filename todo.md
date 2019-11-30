@@ -1,5 +1,6 @@
-- Bug: tslint single or double quote check seems inconsistent
-- CSS: Introduce Storybook
 - Testing: read about unit tests eco system
 - TSLint: Form an opinion about "Multiline JS expressions inside JSX are forbidden"
-- Feature: Make a shared listener to the resize event instead of one for each instance
+- Bug: tslint single or double quote check seems inconsistent
+- CSS: Introduce Storybook
+- Feature: Make a shared listener to the resize event instead of one for each instance.
+- Feature: Only store user settings in local storage. Make distinction between appSettings and userSettings.
