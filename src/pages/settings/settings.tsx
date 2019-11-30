@@ -35,7 +35,7 @@ export default function  Settings() {
 
   return (
     <>
-      <h2 className="u-mt--none u-mb--large">Content Rating</h2>
+      <h2 className="u-mt--none u-mb--large">Settings</h2>
       <form onSubmit={saveRating}>
         <div className="u-mb--large">
           <FormRadio label="Kid friendly" formInputValue={rating} value="g" />
