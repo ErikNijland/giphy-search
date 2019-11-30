@@ -6,7 +6,7 @@
 
 .notification--error {
   color: var(--color-red);
-  border-color: var(--color-blue);
+  border-color: var(--color-red);
 }
 
 .notification--info {
