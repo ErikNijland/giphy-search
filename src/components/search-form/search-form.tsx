@@ -2,7 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import useFormInputValue from "../../hooks/use-form-input-value/use-form-input-value";
 import useSearchParam from "../../hooks/use-search-param/use-search-param";
+import {FormButton} from "../form-button/form-button";
 import {FormInput} from "../form-input/form-input";
+import "./search-form.css";
 
 export default function SearchForm() {
   const query = useFormInputValue(useSearchParam("query") || "");
@@ -15,16 +17,18 @@ export default function SearchForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={search}>
+    <form className="SearchForm" onSubmit={search}>
+      <div className="SearchForm__Input">
         <FormInput
           autofocus={true}
-          label="Search query"
+          label="Search Giphy images"
           formInputValue={query}
         />
+      </div>
 
-        <button type="submit">Search</button>
-      </form>
-    </div>
+      <div className="SearchForm__Submit">
+        <FormButton type="submit">Search</FormButton>
+      </div>
+    </form>
   );
 }

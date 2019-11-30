@@ -3,7 +3,7 @@
 
 .Giphy {
   display: inline-flex;
-  background-color: var(--grey);
+  background-color: var(--color-grey);
   margin: var(--gap-small);
 }
 

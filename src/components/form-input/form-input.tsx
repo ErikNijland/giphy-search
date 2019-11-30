@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import {IFormInputValue} from "../../types/form-input-value";
-import './form-input.css';
+import "./form-input.css";
 
 interface IProps {
   autofocus: boolean;
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 export function FormInput(props: IProps) {
-  const [ randomId ] = useState('randomId-' + Math.random());
+  const [ randomId ] = useState("randomId-" + Math.random());
   const htmlId = props.id || randomId;
 
   return (

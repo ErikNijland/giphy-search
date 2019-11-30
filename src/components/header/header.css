@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--black);
+  background-color: var(--color-black);
   padding: var(--gap-small) var(--gap-large);
 }
 
@@ -19,5 +19,5 @@
 }
 
 .Header__Link {
-  color: var(--white);
+  color: var(--color-white);
 }

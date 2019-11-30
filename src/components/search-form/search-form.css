@@ -1,0 +1,13 @@
+.SearchForm {
+  display: flex;
+  justify-content: center;
+  padding: var(--gap-large) var(--gap-large) 0;
+}
+
+.SearchForm__Input {
+  margin-right: var(--gap-large);
+}
+
+.SearchForm__Submit {
+
+}
